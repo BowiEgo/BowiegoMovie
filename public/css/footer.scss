@@ -1,0 +1,13 @@
+@import 'common.scss';
+
+.footer {
+    width: 100%;
+    height: 100px;
+    background: #142e44;
+    p {
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        color: #fff;
+    }
+}

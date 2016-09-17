@@ -1,0 +1,47 @@
+@import 'color.scss';
+
+@mixin transition {
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+}
+
+body {
+    background: $bggrey;
+}
+
+img {
+    box-shadow: 0 0 30px rgba(0,0,0,0.8);
+}
+
+a {
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.clearfix:after {
+    content: '';
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+}
+
+.rating {
+    p {
+
+    }
+    .star {
+        i {
+            color: #fff;
+        }
+        i.light {
+            color: #e09015;
+        }
+    }
+}
+

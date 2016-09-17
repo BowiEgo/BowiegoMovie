@@ -1,0 +1,81 @@
+@import 'common.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+
+
+.navbar {
+    position: absolute;
+    width: 100%;
+    margin: 0;
+    padding-left: 10%;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    z-index: 999;
+    .container-fluid {
+        .navbar-header {
+            a {
+                height: 60px;
+                line-height: 60px;
+                padding: 0 15px;
+            }
+        }
+        .navbar-collapse {
+            ul {
+                padding: 0;
+                li {
+                    a {
+                        height: 60px;
+                        line-height: 60px;
+                        padding: 0 15px;
+                    }
+                }
+            }
+        }
+    }
+    .navbar-brand {
+        height: 100%;
+        color: #444;
+    }
+    .navbar-brand:hover {
+        color: $themeblue;
+    }
+}
+.navbar-default {
+    .navbar-nav {
+        li {
+            padding: 0 30px;
+            a {
+                color: #444;
+            }
+            @include transition;
+        }
+        li:after {
+            position: absolute;
+            top: 38%;
+            right: -2px;
+            content: "";
+            display: block;
+            width: 2px;
+            height: 20px;
+            background: #cecece;
+        }
+        li:last-child:after {
+            opacity: 0;
+        }
+        li:hover {
+            background: $bggrey;
+            a {
+                color: $themeblue;
+            }
+        }
+    }
+}

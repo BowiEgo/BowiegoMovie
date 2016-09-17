@@ -1,0 +1,25 @@
+body {
+  background: #e7eaee; }
+
+img {
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8); }
+
+a {
+  cursor: pointer; }
+
+a:hover {
+  text-decoration: none; }
+
+.clearfix:after {
+  content: '';
+  display: block;
+  height: 0;
+  visibility: hidden;
+  clear: both; }
+
+.rating .star i {
+  color: #fff; }
+.rating .star i.light {
+  color: #e09015; }
+
+/*# sourceMappingURL=common.css.map */

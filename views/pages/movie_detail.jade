@@ -1,0 +1,238 @@
+extends ../layout
+
+block content
+    .banner
+        img(src="/img/photo/banner.jpg")
+    .wrap
+        .info.clearfix
+            .poster
+                img(src="/img/poster/main.jpg")
+            .brief
+                p #{movie.year}
+                h2 #{movie.titleCN}
+                p #{movie.release}
+                .rating 
+                    p #{movie.rating}
+                    .star
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star
+                span #{movie.timeLength}
+                span #{movie.type} 
+            .about
+                h4 剧情简介
+                span.line
+                p 柯克船长（克里斯·派恩 Chris Pine 饰）和企业号的船员们来到了银河系中未知的一个区域，开始完成他们5年的任务——探索新世界，寻找新物种。却在途中滞留异星，遭遇了当地种族追杀，他们必须找到方法离开这个星球。
+            .detail
+                h4 影片详情
+                span.line
+                p #{movie.director}
+                p #{movie.casts}
+                p #{movie.language}
+                p #{movie.country}
+            .similar
+                h4 喜欢这部电影的人也喜欢...
+                span.line
+                .hover-toggle
+                    span.active
+                    span
+                    span
+                ul.similar-list.clearfix
+                    li
+                        ul
+                            li
+                                .similar-movie.clearfix.active
+                                    a(src="#")
+                                        img(src="/img/poster/similar1.jpg")
+                                    .similar-brief
+                                        p 2013
+                                        p 星际迷航2：暗黑无界
+                                        p 2016-09-02
+                                        .rating
+                                            p #{movie.rating}
+                                            .star
+                                                i.fa.fa-star
+                                                i.fa.fa-star
+                                                i.fa.fa-star
+                                                i.fa.fa-star
+                                                i.fa.fa-star
+                                
+                            li
+                                .similar-movie.clearfix
+                                    a(src="#")
+                                        img(src="/img/poster/similar2.jpg")
+                                    .similar-brief
+                                        p 2013
+                                        p 星际迷航2：暗黑无界
+                                        p 2016-09-02
+                                        .rating
+                                            p #{movie.rating}
+                                            .star
+                                                i.fa.fa-star
+                                                i.fa.fa-star
+                                                i.fa.fa-star
+                                                i.fa.fa-star
+                                                i.fa.fa-star
+                    li
+                        ul
+                            li
+                                .similar-movie.clearfix.active
+                                    a(src="#")
+                                        img(src="/img/poster/similar3.jpg")
+                                    .similar-brief
+                                        p 2013
+                                        p 星际迷航2：暗黑无界
+                                        p 2016-09-02
+                                        .rating
+                                            p #{movie.rating}
+                                            .star
+                                                i.fa.fa-star
+                                                i.fa.fa-star
+                                                i.fa.fa-star
+                                                i.fa.fa-star
+                                                i.fa.fa-star
+                                
+                            li
+                                .similar-movie.clearfix
+                                    a(src="#")
+                                        img(src="/img/poster/similar4.jpg")
+                                    .similar-brief
+                                        p 2013
+                                        p 星际迷航2：暗黑无界
+                                        p 2016-09-02
+                                        .rating
+                                            p #{movie.rating}
+                                            .star
+                                                i.fa.fa-star
+                                                i.fa.fa-star
+                                                i.fa.fa-star
+                                                i.fa.fa-star
+                                                i.fa.fa-star
+                    li
+                        ul
+                            li
+                                .similar-movie.clearfix.active
+                                    a(src="#")
+                                        img(src="/img/poster/similar5.jpg")
+                                    .similar-brief
+                                        p 2013
+                                        p 星际迷航2：暗黑无界
+                                        p 2016-09-02
+                                        .rating
+                                            p #{movie.rating}
+                                            .star
+                                                i.fa.fa-star
+                                                i.fa.fa-star
+                                                i.fa.fa-star
+                                                i.fa.fa-star
+                                                i.fa.fa-star
+                                
+                            li
+                                .similar-movie.clearfix
+                                    a(src="#")
+                                        img(src="/img/poster/similar6.jpg")
+                                    .similar-brief
+                                        p 2013
+                                        p 星际迷航2：暗黑无界
+                                        p 2016-09-02
+                                        .rating
+                                            p #{movie.rating}
+                                            .star
+                                                i.fa.fa-star
+                                                i.fa.fa-star
+                                                i.fa.fa-star
+                                                i.fa.fa-star
+                                                i.fa.fa-star
+            .pva
+                .hover-toggle
+                    h4.active 剧照
+                    h4 预告
+                    h4 短评
+                    span.line
+                ul
+                    li.photos
+                        //- .container
+                        .row
+                            .col.col-md-12
+                                img.photo-large(src="/img/photo/photo1.jpg")
+                        .row
+                            .col.col-md-6
+                                img.photo-middle(src="/img/photo/photo2.jpg")
+                            .col.col-md-6.col-small
+                                img.photo-small(src="/img/photo/photo3.jpg")
+                                img.photo-small(src="/img/photo/photo4.jpg")
+                        .row
+                            .col.col-md-12
+                                img.photo-large(src="/img/photo/photo1.jpg")
+                    li.videos
+                    li.reviews
+    .wrap-dark
+        .review.clearfix
+            h4 星际迷航3：超越星辰的影评
+            .row
+                .col.col-md-6.clearfix
+                    img.review-avatar(src="/img/review/review-avatar1.jpg")
+                    .review-box
+                        a.review-title(src="#") 我实在是受不了了！能不能别这么侮辱我的智商！
+                        p.review-name 月光
+                        p.review-time 2016-09-02 22:35:28 
+                        .review-rating
+                            .rating
+                                .star.allstar10
+                                    i.fa.fa-star.light
+                                    i.fa.fa-star
+                                    i.fa.fa-star
+                                    i.fa.fa-star
+                                    i.fa.fa-star
+                        p.review-content 受到评论的启发，补充几点写影评时候漏掉的。评论启发的我会特别注明。 本影评用词较激烈，实在是被折磨的受不了了。接受不了激烈语言的朋友请勿阅读，谢谢。 可能我对星际迷航3的评价让人觉得有些偏颇，............
+                .col.col-md-6.clearfix
+                    img.review-avatar(src="/img/review/review-avatar2.jpg")
+                    .review-box
+                        a.review-title(src="#") 超越星辰：如果你真的需要一个详细的解读，那就...
+                        p.review-name XITO已成吃货 
+                        p.review-time 2016-07-22 10:05:53 
+                        .review-rating
+                            .rating
+                                .star.allstar50
+                                    i.fa.fa-star.light
+                                    i.fa.fa-star.light
+                                    i.fa.fa-star.light
+                                    i.fa.fa-star.light
+                                    i.fa.fa-star.light
+                        p.review-content 9月10日写到9月11日 更新 原文是在7月份香港上映后写的。当时考虑到时间太早不便剧透，也就没有完全地以电影的细节为主要内容来写，反而是从星航迷的角度出发，讨论了一下星航粉丝应该如何定位如今新系列的问题。 然而现在我............
+                .col.col-md-6.clearfix
+                    img.review-avatar(src="/img/review/review-avatar3.jpg")
+                    .review-box
+                        a.review-title(src="#") 50年，这部科幻剧集依然活着
+                        p.review-name XITO已成吃货 
+                        p.review-time 2016-07-22 10:05:53 
+                        .review-rating
+                            .rating
+                                .star.allstar50
+                                    i.fa.fa-star.light
+                                    i.fa.fa-star.light
+                                    i.fa.fa-star.light
+                                    i.fa.fa-star.light
+                                    i.fa.fa-star.light
+                        p.review-content 9月10日写到9月11日 更新 原文是在7月份香港上映后写的。当时考虑到时间太早不便剧透，也就没有完全地以电影的细节为主要内容来写，反而是从星航迷的角度出发，讨论了一下星航粉丝应该如何定位如今新系列的问题。 然而现在我............
+                .col.col-md-6.clearfix
+                    img.review-avatar(src="/img/review/review-avatar4.jpg")
+                    .review-box
+                        a.review-title(src="#") 你只要继续向前走就是了
+                        p.review-name XITO已成吃货 
+                        p.review-time 2016-07-22 10:05:53 
+                        .review-rating
+                            .rating
+                                .star.allstar50
+                                    i.fa.fa-star.light
+                                    i.fa.fa-star.light
+                                    i.fa.fa-star.light
+                                    i.fa.fa-star.light
+                                    i.fa.fa-star.light
+                        p.review-content 9月10日写到9月11日 更新 原文是在7月份香港上映后写的。当时考虑到时间太早不便剧透，也就没有完全地以电影的细节为主要内容来写，反而是从星航迷的角度出发，讨论了一下星航粉丝应该如何定位如今新系列的问题。 然而现在我............
+            .more-review 更多影评...
+
+    script(src="/js/ratingStar.js")
+    
