@@ -2,27 +2,28 @@ extends ../layout
 
 block content
 	.screen
-		.slide-box
-			ul.slide-content.clearfix
-				each item in screen
-					li.slide-item
-						.thumbnail
-							a(href="/movie/#{item.doubanID}")
-								img(src="#{item.poster}", alt="#{item.title}")
-								.caption
-									h3 #{item.title}
-									.rating 
-										p #{item.rating}
-										.star
-											i.fa.fa-star
-											i.fa.fa-star
-											i.fa.fa-star
-											i.fa.fa-star
-											i.fa.fa-star
-		.slide-dot
-		.btn.btn-l 
-			i.fa.fa-chevron-left
-		.btn.btn-r
-			i.fa.fa-chevron-right
+		.slide(alt="4")
+			.slide-box
+				ul.slide-content.clearfix
+					each item in screen
+						li.slide-item
+							.thumbnail
+								a(href="/movie/#{item.doubanID}")
+									img(src="#{item.poster}", alt="#{item.title}")
+									.caption
+										h3 #{item.title}
+										.rating 
+											p #{item.rating}
+											.star
+												i.fa.fa-star
+												i.fa.fa-star
+												i.fa.fa-star
+												i.fa.fa-star
+												i.fa.fa-star
+			.slide-dot
+			.btn.btn-l 
+				i.fa.fa-chevron-left
+			.btn.btn-r
+				i.fa.fa-chevron-right
 		script(src="/js/slide.js")
 		script(src="/js/ratingStar.js")

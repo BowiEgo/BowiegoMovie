@@ -68,17 +68,16 @@ app.get('/movie/:doubanID', function(req, res) {
 
     DoubanCrawler.crawler(url, 'movieDetail', function() {
 
-        // DoubanCrawler.crawler(posterUrl, 'poster', function() {
+        DoubanCrawler.crawler(posterUrl, 'poster', function() {
 
             MovieDetail.find({}, function(err, movieDetail) {
                 var movie = movieDetail[0].data;
-                console.log(movie);
                 res.render('pages/movie_detail', {
                     resource: mapping['movieDetail'],
                     movie: movie,
                 });
             });
-        // });
+        });
 
     });
 

@@ -190,6 +190,22 @@ exports.crawler =  function(url, db, callback) {
                     })
 
                     var titleCN = $('#comments-section .mod-hd h2 i').text().replace('的短评','');
+                    var similar =$('#recommendations .recommendations-bd dl');
+                    var similarArr = [];
+                    for(var i =0; i < similar.length; i++) {
+                        // console.log(similar[i]);
+                        var doubanUrl = similar.eq(i).find('a').attr('href');
+                        var poster = similar.eq(i).find('img').attr('src');
+                        var title = similar.eq(i).find('img').attr('alt');
+                        var doubanID = parseInt(String(doubanUrl).split('/')[4]);
+                        var similarMovie = {
+                            doubanUrl: doubanUrl,
+                            poster: poster,
+                            title: title,
+                            doubanID: doubanID,
+                        };
+                        similarArr.push(similarMovie);
+                    }
 
                     var movieDetail = {
                         titleCN: titleCN,
@@ -217,6 +233,8 @@ exports.crawler =  function(url, db, callback) {
                             one: ratingPer.eq(4).text(),
                         },
                         ratingBetter: ratingBetter,
+                        synopsis: $('.related-info .indent span').text(),
+                        similar: similarArr,
                     };
                     uploadData(movieDetail, db, callback);
                 break;

@@ -71,83 +71,101 @@
             @include infobox;
         }
         .similar {
+            h4 {
+                display: inline-block;
+                padding-left: 20px;
+            }
+            .line {
+                margin-left: 20px;
+            }
             @include infobox;
             position: relative;
             width: 452px;
             height: 470px;
             float: left;
-            padding-left: 20px;
-            overflow: hidden;
             .hover-toggle {
                 width: 100%;
                 text-align: center;
                 position: absolute;
                 padding-right: 40px;
                 bottom: 0;
-                span {
+                .hover-block {
                     display: inline-block;
-                    margin: 0 10px;
                     width: 50px;
-                    height: 4px;
-                    background: $line;
+                    height: 30px;
+                    margin: 0 10px;
+                    line-height: 20px;
+                    cursor: pointer;
+                    span {
+                        display: inline-block;
+                        width: 50px;
+                        height: 4px;
+                        background: $line;
+                    }
                 }
-                span.active {
-                    background: $themeblue;
+                .hover-block.active {
+                    span {
+                        background: $themeblue;
+                    }
                 }
             }
-            .similar-list {
-                position: relative;
-                width: 1400px;
-                padding-top: 20px;
-                li {
-                    float: left;
-                    width: 451px;
-                    height: 100%;
-                    ul {
-                        position: relative;
-                        height: 360px;
-                        li {
-                            position: absolute;
+            .slide-box {
+                .similar-list {
+                    position: relative;
+                    width: 1400px;
+                    padding-top: 20px;
+                    li {
+                        float: left;
+                        width: 451px;
+                        height: 100%;
+                        ul {
+                            position: relative;
                             height: 360px;
-                            .similar-movie {
-                                position: relative;
-                                width: 100%;
-                                height: 100%;
-                                a {
-                                    position: absolute;
-                                    bottom: 0;
-                                    img {
-                                        width: 140px;
-                                        box-shadow: 0 0 16px rgba(0,0,0,0.8);
+                            padding-left: 20px;
+                            li {
+                                position: absolute;
+                                height: 340px;
+                                .similar-movie {
+                                    position: relative;
+                                    width: 100%;
+                                    height: 100%;
+                                    a {
+                                        position: absolute;
+                                        bottom: 0;
+                                        img {
+                                            width: 140px;
+                                            box-shadow: 0 0 16px rgba(0,0,0,0.8);
+                                        }
+                                    }
+                                    .similar-brief {
+                                        width: 180px;
+                                        float: right;
+                                        opacity: 0;
+                                        p {
+                                            margin: 40px 0;
+                                            font-size: 20px;
+                                        }
                                     }
                                 }
-                                .similar-brief {
-                                    width: 180px;
-                                    float: right;
-                                    opacity: 0;
-                                    p {
-                                        margin: 6px 0;
+                                .similar-movie.active {
+                                    a {
+                                        img {
+                                            width: 240px;
+                                        }
+                                    }
+                                    .similar-brief {
+                                        opacity: 1;
                                     }
                                 }
                             }
-                            .similar-movie.active {
-                                a {
-                                    img {
-                                        width: 240px;
+                            li:nth-child(2n) {
+                                .similar-movie {
+                                    a{
+                                        right: 40px;
                                     }
-                                }
-                                .similar-brief {
-                                    opacity: 1;
-                                }
-                            }
-                        }
-                        li:nth-child(2n) {
-                            .similar-movie {
-                                a{
-                                    right: 40px;
-                                }
-                                .similar-brief {
-                                    float: left;
+                                    .similar-brief {
+                                        float: left;
+                                    }
                                 }
                             }
                         }
@@ -167,6 +185,7 @@
                     width: 100px;
                     text-align: center;
                     color: #585858;
+                    cursor: pointer;
                     // line-height: 30px;
                 }
                 h4.active {

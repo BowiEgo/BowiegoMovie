@@ -24,7 +24,7 @@ block content
             .about
                 h4 剧情简介
                 span.line
-                p 柯克船长（克里斯·派恩 Chris Pine 饰）和企业号的船员们来到了银河系中未知的一个区域，开始完成他们5年的任务——探索新世界，寻找新物种。却在途中滞留异星，遭遇了当地种族追杀，他们必须找到方法离开这个星球。
+                p #{movie.synopsis}
             .detail
                 h4 影片详情
                 span.line
@@ -32,124 +32,74 @@ block content
                 p #{movie.casts}
                 p #{movie.language}
                 p #{movie.country}
-            .similar
+            .similar.slide(alt="1")
                 h4 喜欢这部电影的人也喜欢...
                 span.line
                 .hover-toggle
-                    span.active
-                    span
-                    span
-                ul.similar-list.clearfix
-                    li
-                        ul
-                            li
-                                .similar-movie.clearfix.active
-                                    a(src="#")
-                                        img(src="/img/poster/similar1.jpg")
-                                    .similar-brief
-                                        p 2013
-                                        p 星际迷航2：暗黑无界
-                                        p 2016-09-02
-                                        .rating
-                                            p #{movie.rating}
-                                            .star
-                                                i.fa.fa-star
-                                                i.fa.fa-star
-                                                i.fa.fa-star
-                                                i.fa.fa-star
-                                                i.fa.fa-star
-                                
-                            li
-                                .similar-movie.clearfix
-                                    a(src="#")
-                                        img(src="/img/poster/similar2.jpg")
-                                    .similar-brief
-                                        p 2013
-                                        p 星际迷航2：暗黑无界
-                                        p 2016-09-02
-                                        .rating
-                                            p #{movie.rating}
-                                            .star
-                                                i.fa.fa-star
-                                                i.fa.fa-star
-                                                i.fa.fa-star
-                                                i.fa.fa-star
-                                                i.fa.fa-star
-                    li
-                        ul
-                            li
-                                .similar-movie.clearfix.active
-                                    a(src="#")
-                                        img(src="/img/poster/similar3.jpg")
-                                    .similar-brief
-                                        p 2013
-                                        p 星际迷航2：暗黑无界
-                                        p 2016-09-02
-                                        .rating
-                                            p #{movie.rating}
-                                            .star
-                                                i.fa.fa-star
-                                                i.fa.fa-star
-                                                i.fa.fa-star
-                                                i.fa.fa-star
-                                                i.fa.fa-star
-                                
-                            li
-                                .similar-movie.clearfix
-                                    a(src="#")
-                                        img(src="/img/poster/similar4.jpg")
-                                    .similar-brief
-                                        p 2013
-                                        p 星际迷航2：暗黑无界
-                                        p 2016-09-02
-                                        .rating
-                                            p #{movie.rating}
-                                            .star
-                                                i.fa.fa-star
-                                                i.fa.fa-star
-                                                i.fa.fa-star
-                                                i.fa.fa-star
-                                                i.fa.fa-star
-                    li
-                        ul
-                            li
-                                .similar-movie.clearfix.active
-                                    a(src="#")
-                                        img(src="/img/poster/similar5.jpg")
-                                    .similar-brief
-                                        p 2013
-                                        p 星际迷航2：暗黑无界
-                                        p 2016-09-02
-                                        .rating
-                                            p #{movie.rating}
-                                            .star
-                                                i.fa.fa-star
-                                                i.fa.fa-star
-                                                i.fa.fa-star
-                                                i.fa.fa-star
-                                                i.fa.fa-star
-                                
-                            li
-                                .similar-movie.clearfix
-                                    a(src="#")
-                                        img(src="/img/poster/similar6.jpg")
-                                    .similar-brief
-                                        p 2013
-                                        p 星际迷航2：暗黑无界
-                                        p 2016-09-02
-                                        .rating
-                                            p #{movie.rating}
-                                            .star
-                                                i.fa.fa-star
-                                                i.fa.fa-star
-                                                i.fa.fa-star
-                                                i.fa.fa-star
-                                                i.fa.fa-star
-            .pva
+                    .hover-block.active
+                        span
+                    .hover-block
+                        span
+                    .hover-block
+                        span
+                .slide-box
+                    ul.similar-list.clearfix.slide-content
+                        li.slide-item
+                            ul
+                                li
+                                    .similar-movie.clearfix.active
+                                        a(href="/movie/#{movie.similar[0].doubanID}")
+                                            img(src="#{movie.similar[0].poster}")
+                                        .similar-brief
+                                            p #{movie.similar[0].title}
+                                            
+                                    
+                                li
+                                    .similar-movie.clearfix
+                                        a(href="/movie/#{movie.similar[1].doubanID}")
+                                            img(src="#{movie.similar[1].poster}")
+                                        .similar-brief
+                                            p #{movie.similar[1].title}
+                                            
+                        li.slide-item
+                            ul
+                                li
+                                    .similar-movie.clearfix.active
+                                        a(href="/movie/#{movie.similar[2].doubanID}")
+                                            img(src="#{movie.similar[2].poster}")
+                                        .similar-brief
+                                            p #{movie.similar[2].title}
+                                            
+                                    
+                                li
+                                    .similar-movie.clearfix
+                                        a(href="/movie/#{movie.similar[3].doubanID}")
+                                            img(src="#{movie.similar[3].poster}")
+                                        .similar-brief
+                                            p #{movie.similar[3].title}
+                                            
+                        li.slide-item
+                            ul
+                                li
+                                    .similar-movie.clearfix.active
+                                        a(href="/movie/#{movie.similar[4].doubanID}")
+                                            img(src="#{movie.similar[4].poster}")
+                                        .similar-brief
+                                            p #{movie.similar[4].title}
+                                            
+                                    
+                                li
+                                    .similar-movie.clearfix
+                                        a(href="/movie/#{movie.similar[5].doubanID}")
+                                            img(src="#{movie.similar[5].poster}")
+                                        .similar-brief
+                                            p #{movie.similar[5].title}
+                                            
+            .pva.slide
                 .hover-toggle
-                    h4.active 剧照
-                    h4 预告
-                    h4 短评
+                    h4.hover-block.active 剧照
+                    h4.hover-block 预告
+                    h4.hover-block 短评
                     span.line
                 ul
                     li.photos
@@ -235,4 +185,5 @@ block content
             .more-review 更多影评...
 
     script(src="/js/ratingStar.js")
+    script(src="/js/slide.js")
     

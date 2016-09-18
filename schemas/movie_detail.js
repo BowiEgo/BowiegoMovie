@@ -27,6 +27,8 @@ var MovieSchema = new mongoose.Schema({
             one: {type: String},
         },
         ratingBetter: {type: Array},
+        synopsis: {type: String},
+        similar: {type: Array},
     },
     meta: {         //更改数据的时间记录
         createAt: {      
