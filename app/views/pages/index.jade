@@ -1,0 +1,61 @@
+extends ../layout
+
+block content
+	.screen
+		.slide(alt="5")
+			p 正在热映
+			.slide-box
+				ul.slide-content
+					each item in screen
+						li.slide-item
+							.thumbnail
+								a(href="/movie/#{item.doubanID}" target="_blank")
+									img(src="#{item.poster}", alt="#{item.title}")
+									.caption
+										h3 #{item.title}
+										.rating 
+											p #{item.rating}
+											.star
+												i.fa.fa-star
+												i.fa.fa-star
+												i.fa.fa-star
+												i.fa.fa-star
+												i.fa.fa-star
+			.slide-dot
+			.btn.btn-l 
+				i.fa.fa-chevron-left
+			.btn.btn-r
+				i.fa.fa-chevron-right
+	.reviews
+		.reviews-hd
+			h2 热门影评
+		.reviews-bd.row
+			each item in reviewIndex
+				.col-md-3.col-sm-6
+					.review
+						.review-hd
+							a(href="/movie/#{item.movieDoubanID}")
+								img(src="#{item.moviePoster}")
+						.review-content 
+							h4 
+								a(href="/review/#{item.doubanID}" target="_blank") #{item.title}
+							p #{item.brief}
+						.review-bd
+							.review-meta
+								.meta-row.clearfix
+									p.review-author #{item.author}
+									.rating(class="#{item.rating}")
+										p(style="display: none") 
+												.star
+													i.fa.fa-star
+													i.fa.fa-star
+													i.fa.fa-star
+													i.fa.fa-star
+													i.fa.fa-star
+								.meta-row
+									p.movie-title #{item.movieTitle}
+									a.more(href="/review/#{item.doubanID}") 全文
+
+
+	script(src="/js/slide.js")
+	script(src="/js/ratingStar.js")

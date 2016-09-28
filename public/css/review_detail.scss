@@ -1,0 +1,94 @@
+@import 'common.scss';
+
+img {
+    box-shadow: none;
+}
+
+#article {
+    width: 70%;
+    padding: 50px;
+    margin: 40px auto;
+    background: #fdfdfd;
+    .review {
+        .review-meta {
+            .meta-row {
+                .review-title {
+                    margin: 40px 0;
+                }
+                .author-avatar {
+                    width: 80px;
+                    height: 80px;
+                    float: left;
+                }
+                .review-hd {
+                    width: 380px;
+                    float: left;
+                    margin-left: 40px;
+                    font-size: 18px;
+                    .author-name {
+                        margin: 0;
+                        display: inline-block;
+                        color: $themeblue;
+                    }
+                    span {
+                        margin: 0 0 0 10px;
+                        display: inline-block;
+                    }
+                    .movie-title {
+                        display: inline-block;
+                        margin: 0 0 0 10px;
+                        color: $themeblue;
+                    }
+                    .rating {
+                        margin: 0 0 0 14px;
+                        display: inline-block;
+                    }
+                    .review-time {
+                        margin-top: 20px;
+                        height: 20px;
+                    }
+                }
+            }
+        }
+        .review-content {
+            margin-top: 20px;
+            width: 90%;
+            padding-left: 120px;
+            line-height: 30px;
+        }
+    }
+
+    .comment {
+        margin-top: 100px;
+        .comment-item {
+            margin-top: 40px;
+            img {
+                widht: 80px;
+                height: 80px;
+                float: left;
+            }
+            .comment-area {
+                width: 80%;
+                float: left;
+                padding-left: 40px;
+                .comment-meta {
+                    width: 100%;
+                    background: #d5e1ea;
+                    p {
+                        display: inline-block;
+                        margin: 6px 0 6px 10px;
+                    }
+                    .comment-author {
+                        color: $themeblue;
+                    }
+                    .comment-time {
+                        color: #adadad;
+                    }
+                }
+                .comment-content {
+                    padding: 10px;
+                }
+            }
+        }
+    }
+}

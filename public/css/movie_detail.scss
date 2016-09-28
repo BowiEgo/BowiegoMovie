@@ -39,8 +39,9 @@
             top: 0;
             width: 250px;
             height: 367px;
+            overflow: hidden;
             img {
-                width: 100%;
+                height: 100%;
             }
         }
         .brief {
@@ -123,38 +124,52 @@
                             height: 360px;
                             padding-left: 20px;
                             li {
-                                position: absolute;
+                                float: left;
+                                width: 50%;
                                 height: 340px;
+                                z-index: 99;
                                 .similar-movie {
                                     position: relative;
                                     width: 100%;
                                     height: 100%;
                                     a {
+                                        top: 30px;
+                                        width: 180px;
                                         position: absolute;
-                                        bottom: 0;
+                                        cursor: default;
                                         img {
-                                            width: 140px;
+                                            width: 100%;
                                             box-shadow: 0 0 16px rgba(0,0,0,0.8);
                                         }
                                     }
+
                                     .similar-brief {
-                                        width: 180px;
-                                        float: right;
-                                        opacity: 0;
+                                        position: absolute;
+                                        top: 260px;
+                                        width: 80%;
+                                        text-align: center;
+                                        @include transition;
                                         p {
                                             margin: 40px 0;
                                             font-size: 20px;
                                         }
                                     }
                                 }
-                                .similar-movie.active {
+
+                            }
+                            
+                            li:first-child {
+                                .similar-movie {
                                     a {
-                                        img {
-                                            width: 240px;
-                                        }
+                                        left: 0;
                                     }
-                                    .similar-brief {
-                                        opacity: 1;
+                                }
+                            }
+                            
+                            li:last-child {
+                                .similar-movie {
+                                    a {
+                                        right: 0;
                                     }
                                 }
                             }
@@ -164,6 +179,7 @@
                                         right: 40px;
                                     }
                                     .similar-brief {
+                                        // right: 40px;
                                         float: left;
                                     }
                                 }
@@ -182,11 +198,10 @@
                 @include infobox;
                 h4 {
                     display: inline-block;
-                    width: 100px;
+                    width: 140px;
                     text-align: center;
                     color: #585858;
                     cursor: pointer;
-                    // line-height: 30px;
                 }
                 h4.active {
                     color: $themeblue;
@@ -207,12 +222,18 @@
                     width: 100%;
                 }
             }
-            ul {
+            .slide-box {
                 margin-top: 16px;
+                // box-shadow: 0 0 20px rgba(0,0,0,0.8);
+            }
+            ul {
+                margin: 0;
+                li {
+                    width: 300px;
+                    height: 525px;
+                }
                 li.photos {
-                    background: #969696;
-                    box-shadow: 0 0 30px rgba(0,0,0,0.8);
-                    // overflow: hidden;
+                    // background: #969696;
                     .row {
                         height: 175px;
                         margin: 0;
@@ -222,15 +243,14 @@
                             height: 100%;
                             overflow: hidden;
                             img {
+                                // width: 100%;
                                 height: 100%;
                                 display: block; 
                                 box-shadow: none;
                             }
                             img.photo-large {
-                                margin-left: -85px; 
                             }
                             img.photo-middle {
-                                margin-left: -85px; 
                             }
                             img.photo-small {
                                 width: 101%;
@@ -246,6 +266,12 @@
                             border-bottom: 1px solid transparent;
                         }
                     }
+                }
+                li.videos {
+                    background: #2196f3;
+                }
+                li.reviews {
+                    background: #009688;
                 }
             }
         }
@@ -264,7 +290,7 @@
             width: 280px;
             margin: 40px 0;
             border-left: 4px solid $themeblue;
-            text-align: center;
+            padding-left: 20px;
         }
         .row {
             .col {

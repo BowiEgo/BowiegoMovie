@@ -1,0 +1,4 @@
+{"_id":{"$oid":"57e8b9506a43cf37c8119bd6"},"name":"a","password":"b","meta":{"updateAt":{"$date":"2016-09-26T05:59:44.704Z"},"createAt":{"$date":"2016-09-26T05:59:44.704Z"}},"__v":0,"role":0.0}
+{"_id":{"$oid":"57e8b9b01b019e37f5052cc9"},"name":"b","password":"b","meta":{"updateAt":{"$date":"2016-09-26T06:01:20.080Z"},"createAt":{"$date":"2016-09-26T06:01:20.080Z"}},"__v":0}
+{"_id":{"$oid":"57e8be01254b983e30a5ee6c"},"name":"bobo","password":"abcd","meta":{"updateAt":{"$date":"2016-09-26T06:19:45.670Z"},"createAt":{"$date":"2016-09-26T06:19:45.670Z"}},"__v":0,"role":10.0}
+{"_id":{"$oid":"57ea3ba5e01455b4a303db95"},"name":"c","password":"c","meta":{"updateAt":{"$date":"2016-09-27T09:28:05.442Z"},"createAt":{"$date":"2016-09-27T09:28:05.442Z"}},"role":0,"avatar":"http://dummyimage.com/125x125","__v":0}

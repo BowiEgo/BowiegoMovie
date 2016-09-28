@@ -1,0 +1,145 @@
+extends ../layout
+
+block content
+    .banner
+        img(src=photo[0])
+    .wrap
+        .info.clearfix
+            .poster
+                img(src="#{movie.poster}")
+            .brief
+                p #{movie.year}
+                h2 #{movie.titleCN}
+                p #{movie.release}
+                .rating 
+                    p #{movie.rating}
+                    .star
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star
+                span #{movie.timeLength}
+                span #{movie.type} 
+            .about
+                h4 剧情简介
+                span.line
+                p #{movie.synopsis}
+            .detail
+                h4 影片详情
+                span.line
+                p 导演：#{movie.director}
+                p 演员：#{movie.casts}
+                p #{movie.language}
+                p #{movie.country}
+            .similar.slide(alt="1")
+                h4 喜欢这部电影的人也喜欢...
+                span.line
+                .hover-toggle
+                    .hover-block.active
+                        span
+                    .hover-block
+                        span
+                    .hover-block
+                        span
+                .slide-box
+                    ul.similar-list.slide-content
+                        li.slide-item
+                            ul.clearfix
+                                li
+                                    .similar-movie.clearfix
+                                        a.hover-element(href="#")
+                                            img(src="#{movie.similar[0].poster}")
+                                        .similar-brief
+                                            p #{movie.similar[0].title}
+                                            
+                                    
+                                li
+                                    .similar-movie.clearfix
+                                        a.hover-element(href="#")
+                                            img(src="#{movie.similar[1].poster}")
+                                        .similar-brief
+                                            p #{movie.similar[1].title}
+                                            
+                        li.slide-item
+                            ul
+                                li
+                                    .similar-movie.clearfix.active
+                                        a.hover-element(href="#")
+                                            img(src="#{movie.similar[2].poster}")
+                                        .similar-brief
+                                            p #{movie.similar[2].title}
+                                            
+                                    
+                                li
+                                    .similar-movie.clearfix
+                                        a.hover-element(href="#")
+                                            img(src="#{movie.similar[3].poster}")
+                                        .similar-brief
+                                            p #{movie.similar[3].title}
+                                            
+                        li.slide-item
+                            ul
+                                li
+                                    .similar-movie.clearfix.active
+                                        a.hover-element(href="#")
+                                            img(src="#{movie.similar[4].poster}")
+                                        .similar-brief
+                                            p #{movie.similar[4].title}
+                                            
+                                    
+                                li
+                                    .similar-movie.clearfix
+                                        a.hover-element(href="#")
+                                            img(src="#{movie.similar[5].poster}")
+                                        .similar-brief
+                                            p #{movie.similar[5].title}
+                                            
+            .pva.slide(attr="1")
+                .hover-toggle
+                    h4.hover-block.active 剧照
+                    h4.hover-block 短评
+                    span.line
+                .slide-box
+                    ul.slide-content
+                        li.photos.slide-item
+                            .row
+                                .col.col-md-12
+                                    img.photo-large(src=photo[1])
+                            .row
+                                .col.col-md-6
+                                    img.photo-middle(src=photo[2])
+                                .col.col-md-6.col-small
+                                    img.photo-small(src=photo[3])
+                                    img.photo-small(src=photo[4])
+                            .row
+                                .col.col-md-12
+                                    img.photo-large(src=photo[5])
+                        li.reviews.slide-item
+    .wrap-dark
+        .review.clearfix
+            h4 #{movie.titleCN}的影评
+            .row
+                each item in reviewArr
+                    .col.col-md-6.clearfix
+                        img.review-avatar(src="#{item.reviewAvatar}")
+                        .review-box
+                            a.review-title(href="#{item.reviewUrl}", target="_blank") #{item.reviewTitle}
+                            p.review-name #{item.reviewAuthor}
+                            p.review-time #{item.reviewTime }
+                            .review-rating
+                                .rating(class="#{item.reviewRating}")
+                                    .star
+                                        i.fa.fa-star
+                                        i.fa.fa-star
+                                        i.fa.fa-star
+                                        i.fa.fa-star
+                                        i.fa.fa-star
+                            p.review-content #{item.reviewBrief}
+            //- .more-review 更多影评...
+
+    script(src="/js/ratingStar.js")
+    script(src="/js/slide.js")
+    script(src="/js/movieAjax.js")
+    //- script(src="/js/hover-scale.js")
+    

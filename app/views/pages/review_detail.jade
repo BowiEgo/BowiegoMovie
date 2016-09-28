@@ -1,0 +1,57 @@
+extends ../layout
+
+block content
+    #article
+        .review
+            .review-meta
+                .meta-row
+                    h1.review-title #{review.data.title}
+                .meta-row.clearfix
+                    img.author-avatar(src="#{review.data.authorAvatar}")
+                    .review-hd.clearfix
+                        p.author-name #{review.data.authorName} 
+                        span 评论
+                        a.movie-title(href="#{movieUrl}") #{review.data.movieTitle}
+                        .rating(class="#{review.data.rating}")
+                            p(style="display: none") 8
+                            .star
+                                i.fa.fa-star
+                                i.fa.fa-star
+                                i.fa.fa-star
+                                i.fa.fa-star
+                                i.fa.fa-star
+                        p.review-time #{review.data.time}
+            .review-content
+                p #{review.data.content}
+        .comment
+            if commentsDouban
+                each item in commentsDouban
+                    .comment-item.clearfix
+                        img(src="#{item.avatar}")
+                        .comment-area
+                            .comment-meta
+                                p.comment-author #{item.author}
+                                p.comment-time #{item.Time}
+                            .comment-content
+                                p #{item.content}
+            each item in comments
+                .comment-item.clearfix
+                    img(src="#{item.from.avatar}")
+                    .comment-area
+                        .comment-meta
+                            p.comment-author #{item.from.name}
+                            p.comment-time #{moment(item.meta.updateAt).format('YYYY-MM-DD HH:mm:ss')}
+                        .comment-content
+                            p #{item.content}
+            .container(style="margin-top: 50px;")
+                .row
+                    .col-md-5.col-md-offset-1
+                        form(method="POST", action="/user/comment")
+                            input(type="hidden", name="comment[review]", value="#{review._id}")
+                            if user
+                                input(type="hidden", name="comment[from]", value="#{user._id}")
+                            .form-group
+                                textarea.form-control(name="comment[content]", row="3",style="height: 100px")
+                            button.btn.btn-primary(type="submit") 提交
+
+    
