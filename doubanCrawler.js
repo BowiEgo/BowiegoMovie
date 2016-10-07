@@ -15,6 +15,9 @@ var ReviewIndex = require('./app/schemas/review_index');
 var ReviewDetail = require('./app/schemas/review_detail');
 var Comment = require('./app/schemas/comment');
 var Photo = require('./app/schemas/photo');
+var NewReleaseChart = require('./app/schemas/newRelease_chart');
+var WeeklyChart = require('./app/schemas/weekly_chart');
+var BoxOfficeChart = require('./app/schemas/boxOffice_chart');
 
 Array.prototype.remove=function(dx)  
 {  
@@ -56,7 +59,6 @@ function uploadData(populateId, data, db, callback) {
     switch(db) {
         case 'screenMovie':
             subject = ScreenMovie;
-            console.log(subject);
             setData(doubanID, subject, _data, data, callback);
         break;
         case 'movieDetail':
@@ -65,6 +67,18 @@ function uploadData(populateId, data, db, callback) {
         break;
         case 'reviewIndex':
             subject = ReviewIndex;
+            setData(doubanID, subject, _data, data, callback);
+        break;
+        case 'newReleaseChart':
+            subject = NewReleaseChart;
+            setData(doubanID, subject, _data, data, callback);
+        break;
+        case 'weeklyChart':
+            subject = WeeklyChart;
+            setData(doubanID, subject, _data, data, callback);
+        break;
+        case 'boxOfficeChart':
+            subject = BoxOfficeChart;
             setData(doubanID, subject, _data, data, callback);
         break;
         case 'photo':
@@ -539,7 +553,70 @@ exports.crawler =  function(arg1, url, db, callback) {
                         callback();
                     });
                 break;
-                
+
+                case 'newReleaseChart':
+                    var movies = $('.article .indent table');
+                    var movieArr = [];
+
+                    for(var i = 0; i < movies.length; i++) {
+                        var itemCur = movies.eq(i).find('.item');
+                        var movie = {
+                            doubanID: itemCur.find('td .pl2 a').attr('href').split('/')[4],
+                            poster: itemCur.find('td').eq(0).find('img').attr('src'),
+                            title: itemCur.find('td .pl2 a').text().replace(/\n/g,'').replace(/ /g,''),
+                            brief: itemCur.find('td .pl').text(),
+                            rating: itemCur.find('.star span').eq(0).attr('class'),
+                            ratingNum: itemCur.find('.star .rating_nums').text(),
+                        };
+                        movieArr.push(movie);
+                    }
+
+                    uploadData(arg1, movieArr, 'newReleaseChart', callback);
+                break;
+
+                case 'weeklyChart':
+                    var movies = $('#listCont2 li');
+                    var movieArr = [];
+                    var date = movies.eq(0).find('span').text();
+                    for(var i = 1; i < movies.length; i++) {
+                        var movie = {
+                            doubanID: movies.eq(i).find('.name a').attr('href').split('/')[4],
+                            rank: movies.eq(i).find('.no').text(),
+                            title: movies.eq(i).find('.name a').text().replace(/\n/g,'').replace(/ /g,''),
+                            rankingChange: movies.eq(i).find('span div').attr('class'),
+                            rankingChangeNum: movies.eq(i).find('span div').text(),
+                        };
+                        movieArr.push(movie);
+                    };
+                    
+                    var data = {
+                        date: date,
+                        movieArr: movieArr,
+                    }
+                    uploadData(arg1, data, 'weeklyChart', callback);
+                break;
+
+                case 'boxOfficeChart':
+                    var movies = $('#listCont1 li');
+                    var movieArr = [];
+                    var date = movies.eq(0).find('span').text();
+                    for(var i = 1; i < movies.length; i++) {
+                        var movie = {
+                            doubanID: movies.eq(i).find('.box_chart a').attr('href').split('/')[4],
+                            rank: movies.eq(i).find('.no').text(),
+                            title: movies.eq(i).find('.box_chart a').text().replace(/\n/g,'').replace(/ /g,''),
+                            boxNum: movies.eq(i).find('.box_chart_num').text(),
+                        };
+                        movieArr.push(movie);
+                    };
+                    
+                    var data = {
+                        date: date,
+                        movieArr: movieArr,
+                    }
+                    uploadData(arg1, data, 'boxOfficeChart', callback);
+                break;
+
                 default: return;
             }
 

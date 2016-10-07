@@ -20,10 +20,6 @@ var ScreenSchema = new mongoose.Schema({
     },
 });
 
-// ScreenSchema.pre('update', function() {
-//     this.update({meta: {updateAt: Date.now()}});
-// });
-
 var Screen = mongoose.model('ScreenMovie', ScreenSchema);
 
 module.exports = Screen;

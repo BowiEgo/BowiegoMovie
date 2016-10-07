@@ -15,6 +15,7 @@ app.locals.cssMap = {
     index: '/css/index.css',
     movieDetail: '/css/movie_detail.css',
     reviewDetail: '/css/review_detail.css',
+    chart: '/css/chart.css',
 };
 app.set('views', './app/views');
 app.set('view engine', 'jade');

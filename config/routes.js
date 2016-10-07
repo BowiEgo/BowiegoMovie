@@ -3,6 +3,7 @@ var User = require('../app/controllers/user');
 var Movie = require('../app/controllers/movie');
 var Review = require('../app/controllers/review');
 var Comment = require('../app/controllers/comment');
+var Chart = require('../app/controllers/chart');
 
 var _ = require('underscore');
 
@@ -25,6 +26,9 @@ module.exports = function(app) {
     //Review
     app.get('/review/:doubanID', Review.reviewDetail);
 
+    //Chart
+    app.get('/chart', Chart.chart);
+
     // User
     // 注册和登录页面
     app.get('/signup', User.showSignup);
@@ -37,7 +41,8 @@ module.exports = function(app) {
     app.get('/logout', User.logout);
         // userlist page
     app.get('/admin/userlist', User.signinRequired, User.adminRequired, User.userlist);
-
+        // user delete
+    app.delete('/admin/userlist', User.signinRequired, User.adminRequired, User.delete);
     //Comment
     app.post('/user/comment', User.signinRequired, Comment.save);
 };

@@ -2,35 +2,8 @@ var User = require('../schemas/user');
 
 // signup
 exports.signup = function(req, res) {
-    var _user = req.body.user;
-
-    User.findOne({name: _user.name}, function(err, user) {
-        if(err) {
-            console.log(err);
-        }
-
-        if(user) {
-            res.redirect('/')
-        }
-        else {
-            var user = new User(_user);
-
-            user.save(function(err, user) {
-                if(err) {
-                    console.log(err);
-                }
-                console.log(user);
-                res.redirect('/admin/userlist');
-            });
-        }
-    });
-};
-
-// signin
-exports.signin = function(req, res) {
-    var _user = req.body.user;
-    var name = _user.name;
-    var password = _user.password;
+    var name = req.query.name;
+    var password = req.query.password;
 
     User.findOne({name: name}, function(err, user) {
         if(err) {
@@ -38,19 +11,70 @@ exports.signin = function(req, res) {
         }
 
         if(!user) {
-            res.redirect('/');
-        }
+            var _user = {
+                name: name,
+                password: password,
+            };
+            var user = new User(_user);
 
-        if(user.password == password) {
-            console.log('password is matched');
-            req.session.user = user;
-            res.redirect('/');
+            user.save(function(err, user) {
+                if(err) {
+                    console.log(err);
+                }
+                console.log(user);
+                res.json({exist: 0});
+            });
         }
         else {
-            console.log('password is not matched');
+            res.json({exist: 1});
         }
-    });
+    })
+    // var _user = req.body.user;
+
+    // User.findOne({name: _user.name}, function(err, user) {
+    //     if(err) {
+    //         console.log(err);
+    //     }
+
+    //     if(user) {
+    //         res.redirect('/')
+    //     }
+    //     else {
+    //         var user = new User(_user);
+
+    //         user.save(function(err, user) {
+    //             if(err) {
+    //                 console.log(err);
+    //             }
+    //             console.log(user);
+    //             res.redirect('/admin/userlist');
+    //         });
+    //     }
+    // });
 };
+
+// signin
+exports.signin = function(req, res) {
+    var name = req.query.name;
+    var password = req.query.password;
+    console.log(name);
+    console.log(password);
+    User.findOne({name: name}, function(err, user) {
+        if(err) {
+            console.log(err);
+        }
+
+        if(user && user.password == password) {
+            console.log('password is matched');
+            req.session.user = user;
+            res.json({varified: 1});
+        }
+        else {
+            res.json({varified: 0});
+        }
+    })
+
+}
 
 // 注册页面
 exports.showSignup = function(req, res) {
@@ -75,6 +99,8 @@ exports.logout = function(req, res) {
 
 // userlist page
 exports.userlist =  function(req, res) {
+    
+
     User.find({}, function(err, users) {
         if(err) {
             console.log(err)
@@ -86,6 +112,25 @@ exports.userlist =  function(req, res) {
         })
     })
 };
+
+// user delete
+exports.delete = function(req, res) {
+    var id = req.query.id;
+
+    // console.log(req);
+
+    if(id) {
+        console.log(id);
+        User.remove({_id: id}, function(err, movie) {
+            if(err) {
+                console.log(err);
+            }
+            else {
+                res.json({success: 1});
+            }
+        });
+    }
+}
 
 //midware for user
 exports.signinRequired = function(req, res, next) {

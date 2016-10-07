@@ -16,8 +16,8 @@ var UserSchema = new mongoose.Schema({
     // 1: verified user
     // 2: advanced user
     // 
-    // >10: admin
-    // >50: super admin
+    // >=10: admin
+    // >=50: super admin
     role: {
         type: Number,
         default: 0,

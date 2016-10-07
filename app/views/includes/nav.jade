@@ -10,13 +10,7 @@
         .collapse.navbar-collapse#bs-example-navbar-collapse-1
             ul.nav.navbar-nav
                 li
-                    a(href="#") 电视剧
-                li
-                    a(href="#") 排行榜
-                li
-                    a(href="#") 分类
-                li
-                    a(href="#") 2015年度榜单
+                    a(href="/chart" target="_blank") 排行榜
             if user
                 p.navbar-text.navbar-right
                     span 欢迎您, #{user.name}
@@ -32,6 +26,7 @@
         .modal-content
             form(method="POST", action="/user/signup")
                 .modal-header 注册
+                    .tip.hide 该用户已存在
                 .modal-body
                     .form-group
                         label(for="signupName") 用户名
@@ -41,12 +36,13 @@
                         input#signupPassword.form-control(name="user[password]", type="text")
                 .modal-footer
                     button.btn.btn-default(type="button", data-dismiss="modal") 关闭
-                    button.btn.btn-success(type="submit") 提交
+                    button.btn.btn-success.btn-submit(type="submit") 提交
 #signinModal.modal.fade
     .modal-dialog
         .modal-content
             form(method="POST", action="/user/signin")
                 .modal-header 登录
+                    .tip.hide 用户名或密码错误
                 .modal-body
                     .form-group
                         label(for="signinName") 用户名
@@ -56,4 +52,7 @@
                         input#signinPassword.form-control(name="user[password]", type="text")
                 .modal-footer
                     button.btn.btn-default(type="button", data-dismiss="modal") 关闭
-                    button.btn.btn-success(type="submit") 提交
+                    button.btn.btn-success.btn-submit(type="submit") 提交
+
+    script(src="/js/user.js")
+    

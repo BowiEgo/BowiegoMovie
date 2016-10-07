@@ -14,6 +14,9 @@ var MovieDetail = require('./app/schemas/movie_detail');
 var ReviewIndex = require('./app/schemas/review_index');
 var ReviewDetail = require('./app/schemas/review_detail');
 var Photo = require('./app/schemas/photo');
+var NewReleaseChart = require('./app/schemas/newRelease_chart');
+var WeeklyChart = require('./app/schemas/weekly_chart');
+var BoxOfficeChart = require('./app/schemas/boxOffice_chart');
 
 mongoose.connect('mongodb://localhost/bowMovie');
 var db = mongoose.connection;
@@ -74,6 +77,19 @@ db.once('open', function(callback) {
     // }
 // });
 
+DoubanCrawler.crawler('', 'https://movie.douban.com/chart', 'newReleaseChart', function(finished) {
+    return;
+});
+
+DoubanCrawler.crawler('', 'https://movie.douban.com/chart', 'weeklyChart', function(finished) {
+    return;
+});
+
+DoubanCrawler.crawler('', 'https://movie.douban.com/chart', 'boxOfficeChart', function(finished) {
+    return;
+});
+
+
 // MovieDetail.find({}, function(err, movieDetail) {
 //     if(err) {
 //         console.log(err);
@@ -88,19 +104,19 @@ db.once('open', function(callback) {
 //     });
 // });
 
-MovieDetail.find({}, function(err, movieDetail) {
-    if(err) {
-        console.log(err);
-    }
-    var movie = movieDetail;
-    movie.forEach(function(item) {
-        item.data.photosUrl.forEach(function(photoUrl, i ,array) {
-            DoubanCrawler.crawler(item._id, photoUrl.photo, 'photo', function(finished) {
+// MovieDetail.find({}, function(err, movieDetail) {
+//     if(err) {
+//         console.log(err);
+//     }
+//     var movie = movieDetail;
+//     movie.forEach(function(item) {
+//         item.data.photosUrl.forEach(function(photoUrl, i ,array) {
+//             DoubanCrawler.crawler(item._id, photoUrl.photo, 'photo', function(finished) {
 
-            })
-        })
-    });
-});
+//             })
+//         })
+//     });
+// });
 // 
 
 // Photo.find({}, function(err, result) {
@@ -114,6 +130,9 @@ MovieDetail.find({}, function(err, movieDetail) {
 //         })
 //     });
 // });
+// 
+// 
+
 
 
         

@@ -35,14 +35,24 @@ block content
                             .comment-content
                                 p #{item.content}
             each item in comments
-                .comment-item.clearfix
-                    img(src="#{item.from.avatar}")
-                    .comment-area
-                        .comment-meta
-                            p.comment-author #{item.from.name}
-                            p.comment-time #{moment(item.meta.updateAt).format('YYYY-MM-DD HH:mm:ss')}
-                        .comment-content
-                            p #{item.content}
+                if item.from
+                    .comment-item.clearfix
+                        img(src="#{item.from.avatar}")
+                        .comment-area
+                            .comment-meta
+                                p.comment-author #{item.from.name}
+                                p.comment-time #{moment(item.meta.updateAt).format('YYYY-MM-DD HH:mm:ss')}
+                            .comment-content
+                                p #{item.content}
+                else 
+                    .comment-item.clearfix
+                        img(src="http://dummyimage.com/125x125")
+                        .comment-area
+                            .comment-meta
+                                p.comment-author 用户已注销
+                                p.comment-time #{moment(item.meta.updateAt).format('YYYY-MM-DD HH:mm:ss')}
+                            .comment-content
+                                p #{item.content}
             .container(style="margin-top: 50px;")
                 .row
                     .col-md-5.col-md-offset-1
