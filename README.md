@@ -10,15 +10,21 @@ a movie website powered by NodeJS &amp; Express 4.X &amp; mongoDB
 ####1. 项目后端搭建:
 
 使用NodeJs的express框架完成电影网站后端搭建;
+
 使用mongodb完成数据存储,通过mongoose模块完成对mongodb数据的构建;
+
 使用jade模板引擎完成页面创建渲染;
+
 使用Moment.js格式化时间;
 
 ####2. 项目前端搭建:
 
 使用jQuery和Bootsrap完成网站前端JS脚本和样式处理;
+
 使用Sass完成电影和音乐首页样式的编写;
+
 自己编写轮播图插件实现首页以及电影详情页轮播图效果;
+
 前后端的数据请求交互通过Ajax完成;
 
 ####3. 本地开发环境搭建:
@@ -30,7 +36,9 @@ a movie website powered by NodeJS &amp; Express 4.X &amp; mongoDB
 网站正常访问无需管理原权限，添加评论需要注册账户，默认为普通账户（权限<10）访问后台用户列表页（localhost:3000/admin/userlist）并进行删除操作需要登录管理员账户(账号:admin 密码:1234)，管理员账户在列表页不可删除。
 
 基于豆瓣电影数据的展示页面（包含当前热映，热门影片，电影详情，电影影评，影评下方评论，电影排行榜）;
+
 具有用户注册登录及管理;
+
 电影详情页面添加评论;
 
 [动态效果演示1](http://o9kkuebr4.bkt.clouddn.com/bowMovie/GIF1.gif)
