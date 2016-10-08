@@ -46,7 +46,6 @@ a movie website powered by NodeJS &amp; Express 4.X &amp; mongoDB
 [动态效果演示3](http://o9kkuebr4.bkt.clouddn.com/bowMovie/GIF3.gif)
 [动态效果演示4](http://o9kkuebr4.bkt.clouddn.com/bowMovie/GIF4.gif)
 
-![截图](http://o9kkuebr4.bkt.clouddn.com/bowMovie/screenshotFireShot%20Capture%2011%20-%20bowMovie%20%E9%A6%96%E9%A1%B5%20-%20http___localhost_3000_.png?imageView/2/w/600/q/40)
 ![截图](http://o9kkuebr4.bkt.clouddn.com/bowMovie/screenshotFireShot%20Capture%20021%20-%20bowMovie%20%E9%A6%96%E9%A1%B5%20-%20http___localhost_3000_.jpg?imageView/2/w/600/q/40)
 ![截图](http://o9kkuebr4.bkt.clouddn.com/bowMovie/screenshotFireShot%20Capture%2012%20-%20%20-%20http___localhost_3000_movie_22939161.png?imageView/2/w/600/q/40)
 ![截图](http://o9kkuebr4.bkt.clouddn.com/bowMovie/screenshotFireShot%20Capture%20017%20-%20%20-%20http___localhost_3000_chart.jpg?imageView/2/w/600/q/40)
