@@ -29,7 +29,7 @@ a movie website powered by NodeJS &amp; Express 4.X &amp; mongoDB
 
 ####3. 本地开发环境搭建:
 
-使用gulp集成jshint对JS语法检查，Sass文件编译、压缩等功能，使用mocha完成用户注册存储等步骤的简单单元测试，以及服务器的自动重启等功能。
+使用gulp集成jshint对JS语法检查，Sass文件编译、压缩等功能。
 
 ####4. 网站整体功能:
 
